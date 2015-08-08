@@ -13,6 +13,7 @@ npm install mock-man -g
 ## How to use
 
 - *mockman -h*
+
 > get help infomation.
 
 ```javascript
@@ -42,6 +43,7 @@ ______________________________________________________
 ```
 
 - *mockman --ip*
+
 > get local ip address
 
 ```javascript
@@ -61,6 +63,7 @@ ______________________________________________________
 ```
 
 - *mockman -p ./data/user.json -P 8080 -v*
+
 > start a server on port 8080, read local file `./data/user.json` and show on the browser.
 
 ```javascript
