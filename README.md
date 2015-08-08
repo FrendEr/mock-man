@@ -1,4 +1,4 @@
-# Mock Man.
+# Mock Man
 
 What is mock-man about? *It is just a node server to response data from local file, ie user.json, then you don't need hard coding in your static files.*
 
@@ -12,7 +12,7 @@ npm install mock-man -g
 
 ## How to use
 
-- after install mock-man globally, execute `mockman -h` for help infomation.
+- `mockman -h` : get help infomation.
 
 ```javascript
 
@@ -40,6 +40,46 @@ ______________________________________________________
 
 ```
 
+- `mockman --ip` : get local ip address
+
+```javascript
+
+mockman --ip
+
+______________________________________________________
+                                                     |
+               ip address message                    |
+                                                     |
+______________________________________________________
+                                                     |
+ip: 当前的地址为 `192.168.0.1`                        |
+                                                     |
+______________________________________________________
+
+```
+
+- `mockman -p ./data/user.json -P 8080 -v` : start a server on port 8080, read local file `./data/user.json` and show on the browser.
+
+```javascript
+
+mockman -p ./data/user.json -P 8080 -v
+
+______________________________________________________
+                                                     |
+               server start message                  |
+                                                     |
+______________________________________________________
+                                                     |
+path: mock数据的路径为 `/Users/frend/data/users.json` |
+port: 服务端口为 `8080`                               |
+Server started, listening on port 8080               |
+                                                     |
+______________________________________________________
+
+view the data on browser with `http://127.0.0.1:8080`
+
+```
+
 ## Version
 
-- ** v.0.0.2 **
+- **v.0.0.2**

@@ -23,7 +23,7 @@ program
 program.parse(process.argv);
 
 if (program.ip)
-    console.log('ip: 当前的地址为 `%s`', os.networkInterfaces().en0[1].address);
+    console.log('ip: 当前的ip地址为 `%s`', os.networkInterfaces().en0[1].address);
 
 if (program.api)
     console.log('api: 调用的接口名为 `%s`', program.api);
