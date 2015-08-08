@@ -20,7 +20,7 @@ mockman -h
 
 ______________________________________________________
                                                      |
-               help infomation                       |
+                 help infomation                     |
                                                      |
 ______________________________________________________
                                                      |
@@ -76,7 +76,7 @@ Server started, listening on port 8080               |
                                                      |
 ______________________________________________________
 
-view the data on browser with `http://127.0.0.1:8080`
+view the response data on browser with `http://127.0.0.1:8080`
 
 ```
 
