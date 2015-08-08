@@ -1,0 +1,11 @@
+{
+    "list": [{
+        "name": "frend",
+        "age": 24,
+        "address": "SHENZHEN"
+    }, {
+        "name": "sam",
+        "age": 24,
+        "address": "SHENZHEN"
+    }]
+}
