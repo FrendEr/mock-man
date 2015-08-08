@@ -12,7 +12,7 @@ npm install mock-man -g
 
 ## How to use
 
-- *mockman -h*
+- **mockman -h**
 
 > get help infomation.
 
@@ -42,7 +42,7 @@ ______________________________________________________
 
 ```
 
-- *mockman --ip*
+- **mockman --ip**
 
 > get local ip address
 
@@ -62,7 +62,7 @@ ______________________________________________________
 
 ```
 
-- *mockman -p ./data/user.json -P 8080 -v*
+- **mockman -p ./data/user.json -P 8080 -v**
 
 > start a server on port 8080, read local file `./data/user.json` and show on the browser.
 
