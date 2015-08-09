@@ -36,7 +36,7 @@ Usage: mockman [options]                             |
     -a, --api <url>      set api url                 |
     -p, --path <source>  set file path               |
     -P, --port [3000]    set port, default 3000      |
-    -v, --visable        show response in browser    |
+    -v, --visable        show response on browser    |
                                                      |
 ______________________________________________________
 
