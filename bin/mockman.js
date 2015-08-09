@@ -80,6 +80,9 @@ if (argv.p) {
                             'The response datas has show on browser.'
                             .green
                         );
+                        console.log(
+                            '\nPress [ Ctrl + c ] to exit.'
+                            .gray);
                     });
             } else {
                 console.log(
@@ -89,6 +92,8 @@ if (argv.p) {
                     app.get('localhost').bold +
                     ':' +
                     app.get('port').bold);
+
+                console.log('\nPress [ Ctrl + c ] to exit.'.gray);
             }
         });
     });
