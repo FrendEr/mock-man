@@ -8,6 +8,11 @@ var program = require('commander');
 var argv = require('yargs').argv;
 var express = require('express');
 var open = require('open');
+var colors = require('colors');
+
+console.log('\n  =============='.bold);
+console.log('  |  ' + 'Mock Man'.america.bold + '  |');
+console.log('  ==============\n'.bold);
 
 /* ==========================
  * Set cmd rule via commander
@@ -23,26 +28,29 @@ program
 
 program.parse(process.argv);
 
-if (program.ip)
-    console.log('ip: 当前的ip地址为 `%s`', os.networkInterfaces().en0[1].address);
+if (program.ip) {
+    console.log('  IP'.cyan + ' : ' + os.networkInterfaces().en0[1].address.bold);
+}
 
-if (program.api)
-    console.log('api: 调用的接口名为 `%s`', program.api);
+if (program.api) {
+    console.log(' API'.cyan + ' : ' + program.api.bold);
+}
 
-if (program.path)
-    console.log('path: mock数据的路径为 `%s`', path.resolve(process.cwd(), program.path));
+if (program.path) {
+    console.log(' URI'.cyan + ' : ' + path.resolve(process.cwd(), program.path)
+        .bold);
+}
 
-if (program.port)
-    console.log('port: 服务端口为 `%s`', program.port);
+if (program.port) {
+    console.log('PORT'.cyan + ' : ' + program.port.bold);
+}
 
+console.log('');
 
 /* ========================
  * Get cmd params via yargs
  * ========================
  */
-if (argv.a)
-    console.log(argv.a);
-
 if (argv.p) {
     fs.readFile(argv.p, function(err, data) {
         if (err) throw err;
@@ -52,30 +60,35 @@ if (argv.p) {
         app.set('port', program.port || 3000).set('localhost',
             '127.0.0.1').set('protocol', 'http://');
         app.use(function(req, res) {
-            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Access-Control-Allow-Origin',
+                '*');
             res.send(data);
         });
 
         var server = require('http').createServer(app);
         server.listen(app.get('port'), function() {
             console.log(
-                'Server started, listening on port ' +
-                app.get('port'));
+                'Server started, listening on port '.green +
+                app.get('port').bold);
 
             if (argv.v) {
-                open(app.get('protocol') + app.get('localhost') +
+                open(app.get('protocol') + app.get(
+                        'localhost') +
                     ':' + app.get('port'),
                     function() {
                         console.log(
                             'The response datas has show on browser.'
+                            .green
                         );
                     });
             } else {
                 console.log(
-                    'You can visit the response datas on browser with %s%s:%s',
-                    app.get('protocol'),
-                    app.get('localhost'),
-                    app.get('port'));
+                    'You can visit the response datas on browser with '
+                    .green +
+                    app.get('protocol').bold +
+                    app.get('localhost').bold +
+                    ':' +
+                    app.get('port').bold);
             }
         });
     });

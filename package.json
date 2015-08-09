@@ -1,10 +1,10 @@
 {
     "name": "mock-man",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Start a node server, to send datas to the client-side, avoid hard coding in the static file.If you ever use the post-man, you know it can get the response data from an api  in the server-side, now mock-man just do the invert things.",
-    "main": "mock-man.js",
+    "main": "mockman.js",
     "bin": {
-        "mockman": "bin/mock-man.js"
+        "mockman": "bin/mockman.js"
     },
     "scripts": {},
     "repository": {
@@ -25,9 +25,11 @@
     },
     "homepage": "https://github.com/FrendEr/mock-man#readme",
     "dependencies": {
+        "colors": "^1.1.2",
         "commander": "^2.8.1",
         "express": "^4.13.3",
         "open": "0.0.5",
         "yargs": "^3.17.1"
-    }
+    },
+    "devDependencies": {}
 }
