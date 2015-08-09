@@ -2,6 +2,10 @@
 
 What is mock-man about? *It is just a node server to response data from local file, ie user.json, then you don't need hard coding in your static files.*
 
+## Version
+
+- **v.0.0.5**
+
 ## Installation
 
 ```javascript
@@ -79,13 +83,9 @@ _________________________________________________________________________
  URI : /Users/frend/data/users.json                                     |
 PORT : 8080                                                             |
                                                                         |
-Server started, listening on port 9090                                  |
-You can visit the response datas on browser with http://127.0.0.1:9090  |
+Server started, listening on port 8080                                  |
+You can visit the response datas on browser with http://127.0.0.1:8080  |
                                                                         |
 _________________________________________________________________________
 
 ```
-
-## Version
-
-- **v.0.0.5**
