@@ -3,14 +3,16 @@
 var os = require('os');
 var fs = require('fs');
 var path = require('path');
+var exec = require('child_process').exec;
 
 var program = require('commander');
 var argv = require('yargs').argv;
 var express = require('express');
 var open = require('open');
 
-/*
+/* ==========================
  * Set cmd rule via commander
+ * ==========================
  */
 program
     .version('0.0.1')
@@ -33,8 +35,11 @@ if (program.path)
 
 if (program.port)
     console.log('port: 服务端口为 `%s`', program.port);
-/*
+
+
+/* ========================
  * Get cmd params via yargs
+ * ========================
  */
 if (argv.a)
     console.log(argv.a);
@@ -46,7 +51,7 @@ if (argv.p) {
         var data = JSON.parse(data);
         var app = express();
         app.set('port', program.port || 3000).set('localhost',
-            'http://127.0.0.1:');
+            '127.0.0.1').set('protocol', 'http://');
         app.use(function(req, res) {
             res.setHeader('Access-Control-Allow-Origin', '*');
             res.send(data);
@@ -58,8 +63,21 @@ if (argv.p) {
                 'Server started, listening on port ' +
                 app.get('port'));
 
-            if (argv.v)
-                open(app.get('localhost') + app.get('port'));
+            if (argv.v) {
+                open(app.get('protocol') + app.get('localhost') +
+                    ':' + app.get('port'),
+                    function() {
+                        console.log(
+                            'The response datas has show on browser.'
+                        );
+                    });
+            } else {
+                console.log(
+                    'You can visit the response datas on browser with %s%s:%s',
+                    app.get('protocol'),
+                    app.get('localhost'),
+                    app.get('port'));
+            }
         });
     });
 }
