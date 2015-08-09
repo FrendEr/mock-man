@@ -14,7 +14,7 @@ npm install mock-man -g
 
 - **mockman -h**
 
-> get help infomation.
+> get help information.
 
 ```javascript
 
@@ -22,7 +22,7 @@ mockman -h
 
 ______________________________________________________
                                                      |
-                 help infomation                     |
+                 help information                    |
                                                      |
 ______________________________________________________
                                                      |
@@ -88,4 +88,4 @@ view the response data on browser with `http://127.0.0.1:8080`
 
 ## Version
 
-- **v.0.0.2**
+- **v.0.0.3**

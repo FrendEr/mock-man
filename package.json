@@ -1,6 +1,6 @@
 {
     "name": "mock-man",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Start a node server, to send datas to the client-side, avoid hard coding in the static file.If you ever use the post-man, you know it can get the response data from an api  in the server-side, now mock-man just do the invert things.",
     "main": "mock-man.js",
     "bin": {

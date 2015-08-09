@@ -3,7 +3,6 @@
 var os = require('os');
 var fs = require('fs');
 var path = require('path');
-var exec = require('child_process').exec;
 
 var program = require('commander');
 var argv = require('yargs').argv;
@@ -20,7 +19,7 @@ program
     .option('-a, --api <url>', 'set api url')
     .option('-p, --path <source>', 'set file path')
     .option('-P, --port [3000]', 'set port, default 3000')
-    .option('-v, --visable', 'show response in browser');
+    .option('-v, --visable', 'show response on browser');
 
 program.parse(process.argv);
 
