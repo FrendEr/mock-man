@@ -19,82 +19,71 @@ console.log('  ==============\n'.bold);
  * ==========================
  */
 program
-    .version('0.0.1')
+    .version('Version: @0.0.5')
     .option('-i, --ip', 'output ip address')
-    .option('-a, --api <url>', 'set api url')
-    .option('-p, --path <source>', 'set file path')
-    .option('-P, --port [3000]', 'set port, default 3000')
-    .option('-v, --visable', 'show response on browser');
+    .option('-a, --api <api url>', 'set api url')
+    .option('-p, --path <source path>', 'set file path')
+    .option('-P, --port <default 3000>', 'set port, default 3000')
+    .option('-v, --visable', 'show response on browser')
+    .parse(process.argv);
 
-program.parse(process.argv);
+program.ip   && console.log('  IP'.cyan + ' : ' + os.networkInterfaces().en0[1].address.bold);
 
-if (program.ip) {
-    console.log('  IP'.cyan + ' : ' + os.networkInterfaces().en0[1].address.bold);
+program.api  && console.log(' API'.cyan + ' : ' + program.api.bold);
+
+program.path && console.log(' URI'.cyan + ' : ' + path.resolve(process.cwd(), program.path).bold);
+
+program.port && console.log('PORT'.cyan + ' : ' + program.port.bold);
+
+(program.ip || program.api || program.path || program.port) && console.log('');
+
+if (!process.argv.slice(2).length) {
+    program.outputHelp();
+    return;
 }
-
-if (program.api) {
-    console.log(' API'.cyan + ' : ' + program.api.bold);
-}
-
-if (program.path) {
-    console.log(' URI'.cyan + ' : ' + path.resolve(process.cwd(), program.path)
-        .bold);
-}
-
-if (program.port) {
-    console.log('PORT'.cyan + ' : ' + program.port.bold);
-}
-
-console.log('');
 
 /* ========================
  * Get cmd params via yargs
  * ========================
  */
 if (argv.p) {
-    fs.readFile(argv.p, function(err, data) {
-        if (err) throw err;
+    if (argv.p.indexOf('.json') > -1) {
+        fs.stat(path.resolve(process.cwd(), './mocker.json'), function(err, stats) {
+            if (err) return console.log('Error: not found macker.json in your project root folder.\n'.red);
 
-        var data = JSON.parse(data);
-        var app = express();
-        app.set('port', program.port || 3000).set('localhost',
-            '127.0.0.1').set('protocol', 'http://');
-        app.use(function(req, res) {
-            res.setHeader('Access-Control-Allow-Origin',
-                '*');
-            res.send(data);
+            fs.readFile(argv.p, function(err, data) {
+                if (err) throw err;
+
+                // init application
+                var app = express();
+                app.set('port', program.port || 3000)
+                    .set('localhost', '127.0.0.1')
+                    .set('protocol', 'http://');
+
+                app.use(function(req, res) {
+                    res.setHeader('Access-Control-Allow-Origin', '*');
+                    res.send(JSON.parse(data));
+                });
+
+                // start server
+                var server = require('http').createServer(app);
+                server.listen(app.get('port'), function() {
+                    console.log(colors.green('Server started, listening on port ') + colors.bold(app.get('port')));
+
+                    if (argv.v) {
+                        open(app.get('protocol') + app.get('localhost') + ':' + app.get('port'), function() {
+                            console.log('The response datas has show on browser.'.green);
+                            console.log('\nPress [ Ctrl + c ] to exit.'.gray);
+                        });
+                    } else {
+                        console.log(colors.green('You can visit the response datas on browser with ') + colors.bold(app.get('protocol') + app.get('localhost') + ':' + app.get('port')));
+                        console.log('\nPress [ Ctrl + c ] to exit.'.gray);
+                    }
+                });
+            });
         });
-
-        var server = require('http').createServer(app);
-        server.listen(app.get('port'), function() {
-            console.log(
-                'Server started, listening on port '.green +
-                app.get('port').bold);
-
-            if (argv.v) {
-                open(app.get('protocol') + app.get(
-                        'localhost') +
-                    ':' + app.get('port'),
-                    function() {
-                        console.log(
-                            'The response datas has show on browser.'
-                            .green
-                        );
-                        console.log(
-                            '\nPress [ Ctrl + c ] to exit.'
-                            .gray);
-                    });
-            } else {
-                console.log(
-                    'You can visit the response datas on browser with '
-                    .green +
-                    app.get('protocol').bold +
-                    app.get('localhost').bold +
-                    ':' +
-                    app.get('port').bold);
-
-                console.log('\nPress [ Ctrl + c ] to exit.'.gray);
-            }
-        });
-    });
+    } else {
+        // just support json file
+        return console.log('Error: import the datas file must be *.json file.\n'.red);
+    }
 }

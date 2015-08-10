@@ -1,0 +1,10 @@
+{
+    "name": "mock man config file",
+    "types": {
+        "api": [
+            ""
+        ],
+        "port": "3000",
+        "base_url": "/User/frend/Document/Frend/GitRepo/FrendEr/mock-man/data/"
+    }
+}
