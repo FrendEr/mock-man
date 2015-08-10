@@ -19,7 +19,7 @@ console.log('  ==============\n'.bold);
  * ==========================
  */
 program
-    .version('Version: @0.0.5')
+    .version('Version: @0.0.6')
     .option('-i, --ip', 'output ip address')
     .option('-a, --api <api url>', 'set api url')
     .option('-p, --path <source path>', 'set file path')

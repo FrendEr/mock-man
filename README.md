@@ -4,7 +4,7 @@ What is mock-man about? *It is just a node server to response data from local fi
 
 ## Version
 
-- **v.0.0.5**
+- **v.0.0.6**
 
 ## Installation
 
@@ -24,25 +24,25 @@ npm install mock-man -g
 
 mockman -h
 
-______________________________________________________
-                                                     |
-                 help information                    |
-                                                     |
-______________________________________________________
-                                                     |
-Usage: mockman [options]                             |
-                                                     |
-  Options:                                           |
-                                                     |
-    -h, --help           output usage information    |
-    -V, --version        output the version number   |
-    -i, --ip             output ip address           |
-    -a, --api <url>      set api url                 |
-    -p, --path <source>  set file path               |
-    -P, --port [3000]    set port, default 3000      |
-    -v, --visable        show response on browser    |
-                                                     |
-______________________________________________________
+____________________________________________________________
+                                                           |
+                    help information                       |
+                                                           |
+____________________________________________________________
+                                                           |
+Usage: mockman [options]                                   |
+                                                           |
+  Options:                                                 |
+                                                           |
+    -h, --help                 output usage information    |
+    -V, --version              output the version number   |
+    -i, --ip                   output ip address           |
+    -a, --api <api url>        set api url                 |
+    -p, --path <source path>   set file path               |
+    -P, --port <default 3000>  set port, default 3000      |
+    -v, --visable              show response on browser    |
+                                                           |
+____________________________________________________________
 
 ```
 
@@ -76,7 +76,7 @@ mockman -p ./data/user.json -P 8080 -v
 
 _________________________________________________________________________
                                                                         |
-               server start message                                     |
+                      server start message                              |
                                                                         |
 _________________________________________________________________________
                                                                         |
