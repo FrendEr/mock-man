@@ -4,13 +4,34 @@ What is mock-man about? *It is just a node server to response data from local fi
 
 ## Version
 
-- **v.0.0.6**
+- **@0.0.6**
 
 ## Installation
 
 ```javascript
 
 npm install mock-man -g
+
+```
+
+## Configuration
+
+> there should be a config file call `mocker.json` in your root directory
+
+- **mocker.json**
+
+```javascript
+
+{
+    "author": "Frend",
+    "app": "application name",
+    "version": "0.1.0",
+    "props": {
+        "api": [],
+        "port": "3000",
+        "base_url": "/User/frend/Document/Frend/GitRepo/FrendEr/mock-man/data/"
+    }
+}
 
 ```
 
