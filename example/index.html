@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mock Man Example</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://127.0.0.1:8080',
+                    data: {
+                        'user': 'frend',
+                        'root': true
+                    },
+                    success: function(data) {
+                        alert(data);
+                    }
+                })
+            });
+        </script>
+    </body>
+</html>
