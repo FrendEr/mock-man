@@ -49,7 +49,7 @@ if (!process.argv.slice(2).length) {
 if (argv.p) {
     if (argv.p.indexOf('.json') > -1) {
         fs.stat(path.resolve(process.cwd(), './mocker.json'), function(err, stats) {
-            if (err) return console.log('Error: not found macker.json in your project root directory.\n'.red);
+            if (err) console.log('Error: not found macker.json in your project root directory.\n'.red);
 
             fs.readFile(argv.p, function(err, data) {
                 if (err) throw err;

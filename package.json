@@ -1,35 +1,37 @@
 {
-    "name": "mock-man",
-    "version": "0.0.6",
-    "description": "Start a node server, to send datas to the client-side, avoid hard coding in the static file.If you ever use the post-man, you know it can get the response data from an api  in the server-side, now mock-man just do the invert things.",
-    "main": "mockman.js",
-    "bin": {
-        "mockman": "bin/mockman.js"
-    },
-    "scripts": {},
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/FrendEr/mock-man.git"
-    },
-    "keywords": [
-        "mock",
-        "hard",
-        "code",
-        "node",
-        "server"
-    ],
-    "author": "Frend",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/FrendEr/mock-man/issues"
-    },
-    "homepage": "https://github.com/FrendEr/mock-man#readme",
-    "dependencies": {
-        "colors": "^1.1.2",
-        "commander": "^2.8.1",
-        "express": "^4.13.3",
-        "open": "0.0.5",
-        "yargs": "^3.17.1"
-    },
-    "devDependencies": {}
+  "name": "mock-man",
+  "version": "0.0.6",
+  "description": "Start a node server, to send datas to the client-side, avoid hard coding in the static file.If you ever use the post-man, you know it can get the response data from an api  in the server-side, now mock-man just do the invert things.",
+  "main": "mockman.js",
+  "bin": {
+    "mockman": "bin/mockman.js"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrendEr/mock-man.git"
+  },
+  "keywords": [
+    "mock",
+    "hard",
+    "code",
+    "node",
+    "server"
+  ],
+  "author": "Frend",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FrendEr/mock-man/issues"
+  },
+  "homepage": "https://github.com/FrendEr/mock-man#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "commander": "^2.8.1",
+    "express": "^4.13.3",
+    "open": "0.0.5",
+    "prompt": "^0.2.14",
+    "vhost": "^3.0.1",
+    "yargs": "^3.17.1"
+  },
+  "devDependencies": {}
 }
