@@ -49,7 +49,7 @@ if (!process.argv.slice(2).length) {
 if (argv.p) {
     if (argv.p.indexOf('.json') > -1) {
         fs.stat(path.resolve(process.cwd(), './mocker.json'), function(err, stats) {
-            if (err) console.log('Error: not found macker.json in your project root directory.\n'.red);
+            if (err) console.log('Error: not found mocker.json in your project root directory.\n'.red);
 
             fs.readFile(argv.p, function(err, data) {
                 if (err) throw err;
@@ -73,12 +73,11 @@ if (argv.p) {
                     if (argv.v) {
                         open(app.get('protocol') + app.get('localhost') + ':' + app.get('port'), function() {
                             console.log('The response datas has show on browser.'.green);
-                            console.log('\nPress [ Ctrl + c ] to exit.'.gray);
                         });
                     } else {
                         console.log(colors.green('You can visit the response datas on browser with ') + colors.bold(app.get('protocol') + app.get('localhost') + ':' + app.get('port')));
-                        console.log('\nPress [ Ctrl + c ] to exit.'.gray);
                     }
+                    console.log('\nPress [ Ctrl + c ] to exit.'.gray);
                 });
             });
         });
